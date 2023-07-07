@@ -18,5 +18,15 @@ def get_bins(pair_address: str, id: int, radius: int):
     parameter = {"radius": radius}
     return get(url, parameter)
 
+def get_pools(address: str):
+    url = f"{BARN_URL}/v1/pools/{CHAIN}/{address}"
+    return get(url)
+
+
+def list_pools(version: any):
+    url = f"{BARN_URL}/v1/pools/{CHAIN}"
+    parameter = {"version": version}
+    return get(url, parameter)
 
 print(get_bins(AVAX_USDC_20BP, 8376042, 10))
+print(list_pools("v2.0"))
